@@ -1,6 +1,14 @@
 # rdf2lodcloud
 RDF Dataset description to lodcloud JSON format
 
+## Usage
+
+You need a pre-installed triplestore. For example: fuseki or virtuoso. See https://github.com/dotwebstack/dotwebstack-theatre-fuseki for instructions to install a fuseki triplestore.
+
+Install the dotwebstack, using: `install.sh`.
+
+
+
 ## Vocabularies
 
 The follow vocabularies are used for the mapping:

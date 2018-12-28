@@ -1,0 +1,27 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#> .
+@prefix config: <http://dotwebstack.org/configuration/>.
+
+GRAPH config:Theatre {
+
+  config:MenuData a elmo:InformationProduct;
+    elmo:backend config:FusekiBackend;
+    elmo:query """
+      prefix elmo1: <http://bp4mc2.org/elmo/def#>
+      prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
+      prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+      CONSTRUCT {
+        [ xhtml:link "http://www.aquo.nl/";
+          rdfs:label "Theatre";
+          elmo1:data [
+            elmo1:index "1"; rdfs:label "Appearances";
+            elmo1:data [elmo1:index "1"; rdfs:label "GeoAppearance"; xhtml:link "/geoAppearance"];
+            elmo1:data [elmo1:index "2"; rdfs:label "GraphAppearance"; xhtml:link "/graphAppearance?subject=http://example.org%23middle"];
+            elmo1:data [elmo1:index "3"; rdfs:label "ChartAppearance"; xhtml:link "/chartAppearance"];
+          ]
+        ]
+      }
+      WHERE {}
+    """;
+  .
+
+}
