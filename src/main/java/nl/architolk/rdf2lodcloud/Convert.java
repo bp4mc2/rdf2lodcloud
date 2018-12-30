@@ -123,6 +123,7 @@ public class Convert {
             keywordsHash.clear();
             dataset.put("keywords",keywords);
             addLiteral(dataset,"title",soln);
+            addResource(dataset,"website",soln);
             datasets.put(identifier,dataset);
             oldIdentifier = identifier;
           }

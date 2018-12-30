@@ -16,6 +16,7 @@ public class QUERY {
     "  ?triples" +
     "  ?keywords" +
     "  ?title" +
+    "  ?website" +
     " WHERE {" +
     "  ?ds a void:Dataset." +
     "  ?ds dct:identifier ?identifier." +
@@ -30,6 +31,7 @@ public class QUERY {
     "  ?dc void:triples ?triples." +
     "  OPTIONAL {?ds dcat:keyword ?keywords}" +
     "  ?dc dct:title ?title." +
+    "  OPTIONAL {?ds dcat:landingPage ?website}" +
     "}" +
     "ORDER BY ?identifier";
 
