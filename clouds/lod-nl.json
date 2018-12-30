@@ -1,0 +1,18 @@
+{
+    "legend": [
+        {
+            "title": "Wikipedia Related",
+            "keywords": ["wikipedia"],
+            "colour": "#c8a788"
+        },
+        {
+            "title": "Other",
+            "keywords": [],
+            "colour": "lightgray"
+        }
+    ],
+    "fixed_points": {},
+    "selection": "all",
+    "rights_text": "The dutch LOD cloud"
+
+}

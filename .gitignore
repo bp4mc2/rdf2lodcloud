@@ -1,1 +1,4 @@
 dotwebstack.jar
+target
+clouds/*.svg
+clouds/*.png

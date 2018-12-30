@@ -1,1 +1,1 @@
-curl -L https://github.com/dotwebstack/dotwebstack-theatre-legacy/releases/download/v0.0.36/dotwebstack-theatre-legacy-0.0.36.jar -o dotwebstack.jar
+curl -L https://github.com/architolk/rdf2lodcloud/releases/download/v1.0.0/rdf2lodcloud-1.0.0.jar -o rdf2lodcloud.jar

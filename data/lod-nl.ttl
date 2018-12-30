@@ -1,0 +1,104 @@
+# Mapping
+# IDENTIFIER      dct:identifier (also used as NAME)
+# TITLE           dct:title
+# DESCRIPTION     dct:description (with a language tag)
+# LICENSE         dct:license
+# WEBSITE         dcat:landingPage
+# LINKS           void:subset
+# - TARGET        void:target (both target are stated in the Linkset, only the "to" target should be used)
+# - VALUE         void:triples
+# SPARQL          void:sparqlEndpoint (details are normalised in sd:Service entries)
+# - DESCRIPTION   dct:description
+# - TITLE         dct:title
+# - ACCESS_URL    sd:endpoint (sd:endpoint IRI must be the same as the void:sparqlEndpoint IRI)
+# - STATUS        http:sc (STATUS describes the http response code, so we can use http:sc, values are instances of http:StatusCode)
+# OWNER           dcat:publisher [discussion: maybe we should use prov, because "owner" is probably about the description not the dataset!]
+# - NAME          foaf:name
+# - EMAIL         foaf:mbox (using an IRI starting with mailto:)
+# IMAGE           foaf:depiction [discussion: is this the best property?]
+# TRIPLES         void:triples
+# FULL_DOWNLOAD   dcat:distribution
+# - STATUS        http:sc
+# - TITLE         dct:title
+# - DESCRIPTION   dct:description
+# - MEDIA_TYPE    dcat:mediaType
+# - DOWNLOAD_URL  dcat:downloadURL
+# OTHER_DOWNLOAD  dcat:distribution
+# - STATUS        http:sc
+# - TITLE         dct:title
+# - DESCRIPTION   dct:description
+# - MEDIA_TYPE    dcat:mediaType
+# - ACCESS_URL    dcat:downloadURL [although dcat:accessURL seems more appropriate, this is not really correct. But how to distinguish?]
+# CONTACT_POINT   dcat:contactPoint
+# - NAME          vcard:fn
+# - EMAIL         vcard:hasEmail
+# EXAMPLE         void:exampleResource
+# - STATUS        http:sc
+# - TITLE         dct:title
+# - DESCRIPTION   dct:description
+# - ACCESS_URL    (ACCESS_URL must be the same as void:exampleResource)
+# DOMAIN          dcat:theme [discussion: the actual ConceptScheme doesn't exists as dereferenceable URI's - so which should we use??]
+# KEYWORDS        dcat:keyword
+# NAMESPACE       void:uriSpace
+# DOI             [unknown, always empty]
+
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+@prefix dataset: <http://linkeddata.ordina.nl/lodnl/id/dataset/>.
+@prefix service: <http://linkeddata.ordina.nl/lodnl/id/service/>.
+@prefix domain: <http://linkeddata.ordina.nl/lodnl/id/domain/>.
+
+service:pdok a sd:Service;
+  dct:title "PDOK SPARQL endpoint";
+  dct:description "SPARQL endpoint for all PDOK datasets (such as BAG, BRT, BRK)";
+  sd:endpoint <https://data.pdok.nl/sparql>;
+  http:sc <http://www.w3.org/2011/http-statusCodes#OK>
+.
+
+dataset:brk a void:Dataset;
+  dct:identifier "brk";
+  dct:title "BRK";
+  dct:description "Kadastrale kaart"@nl;
+  dct:license <http://www.opendefinition.org/licenses/cc-by>;
+  dcat:landingPage <http://brk.basisregistraties.overheid.nl>;
+  void:triples 10000;
+  void:subset [
+    void:target dataset:brk;
+    void:target dataset:bag;
+    void:triples 25
+  ];
+  void:sparqlEndpoint <https://data.pdok.nl/sparql>;
+  dcat:theme domain:geography;
+  dcat:keyword "geo", "gis", "eGovernment", "base-registry", "netherlands";
+.
+
+dataset:bag a void:Dataset;
+  dct:identifier "bag";
+  dct:title "Basisregistratie Adressen en Gebouwen";
+  dct:publisher [
+    foaf:mbox "mailto:wouter@triply.cc"
+  ];
+  dcat:homepage <https://www.pdok.nl/introductie?articleid=1948911>;
+  void:triples 1000000000;
+  dcat:theme domain:geography;
+  dcat:keyword "geo", "gis", "eGovernment", "base-registry", "netherlands";
+  dct:description "De gegevens bestaan uit BAG-panden en een deelselectie van BAG-gegevens van deze panden en de zich daarin bevindende verblijfsobjecten. Ook de ligplaatsen en standplaatsen zijn hierin opgenomen met een deelselectie van BAG-gegevens. De gegevens van de nummeraanduiding zijn in deze services onderdeel van de adresseerbare objecten, hierbij wordt slechts 1 adres opgenomen, dus objecten met meerdere adressen (hoofd- en nevenadressen) zijn niet compleet. In deze services zitten dus niet alle BAG adressen."@nl;
+  void:exampleResource <http://bag.basisregistraties.overheid.nl/bag/id/pand/0200100000085932>;
+  void:uriSpace "http://bag.basisregistraties.overheid.nl/bag/id/";
+  void:sparqlEndpoint <https://data.pdok.nl/sparql>;
+  dcat:contactPoint [
+    void:fn "Erwin Folmer";
+    void:hasEmail "erwin.folmer@kadaster.nl"
+  ];
+  foaf:depiction <https://www.pdok.nl/documents/1901824/1952435/kadaster.png/03b48013-32ca-89fd-3b93-29a467efbb74?t=1530020613449>
+.
+<http://bag.basisregistraties.overheid.nl/bag/id/pand/0200100000085932>
+  dct:title "Kantoorpand 'De Brug' te Apeldoorn";
+  dct:description "Voorbeeld van een pand registratie in de BAG.";
+.
