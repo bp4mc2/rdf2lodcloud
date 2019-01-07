@@ -27,10 +27,10 @@ public class QUERY {
     "  }" +
     "  OPTIONAL {?ds dct:license ?license}" +
     "  ?ds dct:description ?description." +
-    "  ?dc dcat:theme ?domain." +
-    "  ?dc void:triples ?triples." +
+    "  ?ds dcat:theme ?domain." +
+    "  ?ds void:triples ?triples." +
     "  OPTIONAL {?ds dcat:keyword ?keywords}" +
-    "  ?dc dct:title ?title." +
+    "  ?ds dct:title ?title." +
     "  OPTIONAL {?ds dcat:landingPage ?website}" +
     "}" +
     "ORDER BY ?identifier";

@@ -1,0 +1,23 @@
+{
+    "legend": [
+        {
+            "title": "Vocabulary",
+            "keywords": ["vocabulary"],
+            "colour": "green"
+        },
+        {
+            "title": "Base registry",
+            "keywords": ["base-registry"],
+            "colour": "blue"
+        },
+        {
+            "title": "Other",
+            "keywords": [],
+            "colour": "lightgray"
+        }
+    ],
+    "fixed_points": {"nen3610": [0,0]},
+    "selection": "all",
+    "rights_text": "The dutch NEN3610 LOD cloud",
+    "bubble_size_factor": 5.0
+}
