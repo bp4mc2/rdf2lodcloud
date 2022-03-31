@@ -6,9 +6,9 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#>
 
-@prefix dataset: <http://linkeddata.ordina.nl/lodnl/id/dataset/>.
-@prefix service: <http://linkeddata.ordina.nl/lodnl/id/service/>.
-@prefix domain: <http://linkeddata.ordina.nl/lodnl/id/domain/>.
+@prefix dataset: <http://geonovum.github.io/NEN3610-Linkeddata/dataset/>.
+@prefix service: <http://geonovum.github.io/NEN3610-Linkeddata/service/>.
+@prefix domain: <http://geonovum.github.io/NEN3610-Linkeddata/dataset/domain/>.
 
 dataset:nen3610 a void:Dataset;
   dct:title "NEN3610";
